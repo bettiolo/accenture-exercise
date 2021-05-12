@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha \"./*.js\""
+    "task1": "mocha \"./*.js\"",
+    "task2": "node task-2.js"
   },
   "author": "Marco Bettiolo <marco@bettiolo.it>",
   "private": true,
