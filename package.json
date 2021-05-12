@@ -1,0 +1,14 @@
+{
+  "name": "accenture-vodafone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha \"./*.js\""
+  },
+  "author": "Marco Bettiolo <marco@bettiolo.it>",
+  "private": true,
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0"
+  }
+}
