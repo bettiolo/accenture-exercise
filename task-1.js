@@ -144,15 +144,15 @@ describe('Task 1', () => {
       'pen pine apple',
       'pen pine apple apple',
       'pen pine apple pen',
-      'pen pine apple pen apple', // Provided example 1
+      'pen pine apple pen apple', // Provided in example 1
       'pen pine applepen',
-      'pen pine applepen apple', // Provided example 3
+      'pen pine applepen apple', // Provided in example 3
       'pen pine pen',
       'pen pine pen apple',
       'pen pineapple',
       'pen pineapple apple',
       'pen pineapple pen',
-      'pen pineapple pen apple', // Provided example 2
+      'pen pineapple pen apple', // Provided in example 2
       'pine',
       'pine apple',
       'pine apple apple',
