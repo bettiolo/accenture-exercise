@@ -6,16 +6,18 @@
 // There are no words in str which are not in the dict
 // (You are allowed to reuse the words in dict.)
 
-// const testStr = 'penpineapplepenapple',
-// const testDict = ['apple', 'pen', 'applepen', 'pine', 'pineapple']
+/*
+str = "penpineapplepenapple"
+dict = ["apple", "pen", "applepen", "pine", "pineapple"]
 
-// makeSentence(testStr, testDict)
+makeSentence(str, dict)
 
-// const testResult = [
-//   'pen pine apple pen apple',
-//   'pen pineapple pen apple',
-//   'pen pine applepen apple',
-// ]
+Output: [
+  "pen pine apple pen apple",
+  "pen pineapple pen apple",
+  "pen pine applepen apple"
+]
+ */
 
 function makeSentence(str, dict) {
 
