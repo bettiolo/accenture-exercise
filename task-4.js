@@ -145,13 +145,14 @@ describe('Task 4', () => {
     assert.deepEqual(result, { title: 'Error page', message: null });
   });
 
-  it('handles processing and fetches next state', () => {
+  it('handles processing and returns error after 2 seconds', () => {
     const startTime = Date.now()
-    const result = getProcessingPage([{ state: 'processing' }, { state: 'success' }]);
+    // Exact example from requirements
+    const result = getProcessingPage([{ state: 'processing' }, { state: 'error' }]);
     const endTime = Date.now()
     const elapsed = endTime - startTime;
 
-    assert.deepEqual(result, { title: 'Order complete', message: null });
+    assert.deepEqual(result, { title: 'Error page', message: null });
     assert.isAtLeast(elapsed, 2000);
   }).timeout(2500); // mocha times out after 2000ms
 });
