@@ -49,6 +49,8 @@ function makeSentence(str, dict) {
 
       // Check if other words match the rest of the string ...
       const strRemaining = str.substring(stringPos + word.length);
+      // WARNING: with enough data this will generate a stack overflow.
+      // We could implement tail call recursion to leverage tail call optimization in case of lots of data.
       const remainingSentences = makeSentence(strRemaining, dict);
 
       // ... append them to the current match
