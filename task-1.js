@@ -96,18 +96,6 @@ describe('Task 1', () => {
     assert.deepEqual(result, ['a', 'a a']);
   });
 
-  it('handles unrecognised words', () => {
-    const result = makeSentence('ab', ['a']);
-
-    assert.deepEqual(result, ['a']);
-  });
-
-  it('skips unrecognised letters', () => {
-    const result = makeSentence('a?a', ['a']);
-
-    assert.deepEqual(result, ['a', 'a a']);
-  });
-
   it('handles multiple words', () => {
     const result = makeSentence('ab', ['a', 'b']);
 
