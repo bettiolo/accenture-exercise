@@ -60,7 +60,8 @@ function makeSentence(str, dict) {
   return sentences.sort(); // This will generate predictable sorted output
 }
 
-const {assert} = require('chai');
+const { assert } = require('chai');
+
 describe('Task 1', () => {
 
   it('handles bad string input', () => {
