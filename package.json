@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "task1": "mocha \"./*.js\"",
-    "task2": "node task-2.js"
+    "task1": "mocha \"./task-1.js\"",
+    "task2": "node task-2.js",
+    "task4": "mocha \"./task-4.js\""
   },
   "author": "Marco Bettiolo <marco@bettiolo.it>",
   "private": true,
