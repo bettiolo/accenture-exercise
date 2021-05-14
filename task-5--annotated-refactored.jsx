@@ -2,7 +2,7 @@
 import React from 'react';
 
 const css = {
-  // Don't use inline styles, use css classes from the style guidelines
+  // Don't use inline styles, use css classes from the internal design guidelines
   fontSize: "12px"
 }
 
@@ -17,7 +17,7 @@ function Alert({ fuel }) {
   // We don't need to update the state to display the Alert, do the check inline.
   const displayAlert = fuel > 1200;
   return displayAlert ?
-    // Don't use inline styles, use css classes from the style guidelines
+    // Don't use inline styles, use css classes from the internal design guidelines
     <h2 style={{color: "red"}}>Alert</h2>
     :
     <h2>All is fine</h2>;
