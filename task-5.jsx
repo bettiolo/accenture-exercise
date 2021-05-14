@@ -73,7 +73,7 @@ Argument `props` is not intuitive, be more explicit, use named arguments syntax 
 
 Line 8:
 Don't use inline styles, use css classes from the style guidelines
-Also, see Line ??? about the use of `children`
+Also, see comment for Line 54 about the use of `children`
 
 Line 12:
 Argument `props` is not intuitive, be more explicit, use named arguments syntax `{ fuel }`
