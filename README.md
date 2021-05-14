@@ -10,5 +10,6 @@ The tasks have been broken down in multiple files:
 - [task-4.js](task-4.js) to run `npm run task4`
 - [task-5.md](task-5.md)
   - [Annotated and refactored version](task-5--annotated-refactored.jsx)
+  - [Annotated version](task-5--annotated.jsx)
 
 Have fun 😄
