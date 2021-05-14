@@ -1,3 +1,5 @@
+# Task 5
+
 You are mid/senior developer in a large long-term project A.
 
 During sprint planning there is the following user story:
@@ -14,7 +16,7 @@ The PO (product owner, who is a sales consultant in another department) has ment
 will want to add more features to the widget and make it more customisable at some point in the future.
 
 You agree for one of the junior developers to take the user story, who proceeds to write the code
-and demonstrate it to the PO.  The PO is satisfied it functions as requested.
+and demonstrate it to the PO. The PO is satisfied it functions as requested.
 
 The developer then creates a pull request for code review: [task-5.jsx](task-5.jsx)
 
