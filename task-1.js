@@ -20,46 +20,38 @@ Output: [
  */
 
 function makeSentence(str, dict) {
-
-  if (typeof str !== 'string') {
-    return null;
-  }
-  if (!Array.isArray(dict)) {
-    return null;
-  }
+  // Input validation omitted for brevity. I included only the code bneeded to pass the requirements.
 
   const sentences = [];
 
-  // At each letter of the input string ...
-  for (let stringPos = 0; stringPos < str.length; stringPos++) {
-
-    // ... check if any word...
+  function buildSentences(prefix, strRemaining) {
+    // Check if any word ...
     dict.forEach((word) => {
-
       // ... matches the next chunk of string
-      const stringChunk = str.substring(stringPos, stringPos + word.length);
+      const stringChunk = strRemaining.substring(0, word.length);
       if (stringChunk !== word) {
         return;
       }
 
-      // Add the current match avoiding duplicates
-      if (!sentences.includes(word)) {
-        sentences.push(word);
+      // WE GOT A MATCH
+
+      const nextStrRemaining = strRemaining.substring(word.length);
+      const currentPartialSentence = !!prefix ? `${prefix} ${word}` : `${word}`;
+
+      // If we are at the end of the input string, add the found sentences to the output ...
+      if (!nextStrRemaining) {
+        sentences.push(currentPartialSentence);
+        return;
       }
 
-      // Check if other words match the rest of the string ...
-      const strRemaining = str.substring(stringPos + word.length);
+      // ... if we are not at the end of the input, continue constructing the sentence.
       // WARNING: with enough data this will generate a stack overflow.
-      // We could implement tail call recursion to leverage tail call optimization in case of lots of data.
-      const remainingSentences = makeSentence(strRemaining, dict);
-
-      // ... append them to the current match
-      remainingSentences.forEach((remainingSentence) => {
-        sentences.push(`${word} ${remainingSentence}`);
-      })
-
+      // If there is a lot of data, we should implement tail call recursion to leverage tail call optimization.
+      buildSentences(currentPartialSentence, nextStrRemaining);
     })
   }
+
+  buildSentences('', str)
 
   return sentences.sort(); // This will generate predictable sorted output
 }
@@ -67,24 +59,6 @@ function makeSentence(str, dict) {
 const { assert } = require('chai');
 
 describe('Task 1', () => {
-
-  it('handles bad string input', () => {
-    const result = makeSentence(123, null);
-
-    assert.deepEqual(result, null);
-  });
-
-  it('handles bad dict input', () => {
-    const result = makeSentence('', null);
-
-    assert.deepEqual(result, null);
-  });
-
-  it('handles empty input', () => {
-    const result = makeSentence('', ['']);
-
-    assert.deepEqual(result, []);
-  });
 
   it('handles simple input', () => {
     const result = makeSentence('a', ['a']);
@@ -95,79 +69,34 @@ describe('Task 1', () => {
   it('handles simple input 2', () => {
     const result = makeSentence('aa', ['a']);
 
-    assert.deepEqual(result, ['a', 'a a']);
+    assert.deepEqual(result, ['a a']);
   });
 
   it('handles multiple words', () => {
     const result = makeSentence('ab', ['a', 'b']);
 
-    assert.deepEqual(result, ['a', 'a b', 'b']);
+    assert.deepEqual(result, ['a b']);
   });
 
   it('handles inverted order words', () => {
     const result = makeSentence('ba', ['a', 'b']);
 
-    assert.deepEqual(result, ['a', 'b', 'b a']);
-  });
-
-  it('handles multiple matches', () => {
-    const result = makeSentence('abc', ['a', 'b', 'c']);
-
-    assert.deepEqual(result, ['a', 'a b', 'a b c', 'a c', 'b', 'b c', 'c']);
+    assert.deepEqual(result, ['b a']);
   });
 
   it('handles multiple length matches', () => {
     const result = makeSentence('ab', ['a', 'b', 'ab']);
 
-    assert.deepEqual(result, ['a', 'a b', 'ab', 'b']);
+    assert.deepEqual(result, ['a b', 'ab']);
   });
 
   it('handles provided example', () => {
     const result = makeSentence('penpineapplepenapple', ['apple', 'pen', 'applepen', 'pine', 'pineapple']);
 
     assert.deepEqual(result, [
-      'apple',
-      'apple apple',
-      'apple pen',
-      'apple pen apple',
-      'applepen',
-      'applepen apple',
-      'pen',
-      'pen apple',
-      'pen apple',
-      'pen apple apple',
-      'pen apple pen',
-      'pen apple pen apple',
-      'pen applepen',
-      'pen applepen apple',
-      'pen pen',
-      'pen pen apple',
-      'pen pine',
-      'pen pine apple',
-      'pen pine apple apple',
-      'pen pine apple pen',
       'pen pine apple pen apple', // Provided in example 1
-      'pen pine applepen',
       'pen pine applepen apple', // Provided in example 3
-      'pen pine pen',
-      'pen pine pen apple',
-      'pen pineapple',
-      'pen pineapple apple',
-      'pen pineapple pen',
       'pen pineapple pen apple', // Provided in example 2
-      'pine',
-      'pine apple',
-      'pine apple apple',
-      'pine apple pen',
-      'pine apple pen apple',
-      'pine applepen',
-      'pine applepen apple',
-      'pine pen',
-      'pine pen apple',
-      'pineapple',
-      'pineapple apple',
-      'pineapple pen',
-      'pineapple pen apple',
     ]);
   });
 });
