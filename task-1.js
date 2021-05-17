@@ -20,7 +20,7 @@ Output: [
  */
 
 function makeSentence(str, dict) {
-  // Input validation omitted for brevity. I included only the code bneeded to pass the requirements.
+  // Input validation omitted for brevity. I included only the code needed to pass the requirements.
 
   const sentences = [];
 
